@@ -17,9 +17,17 @@
             stage('Docker Image of the app'){
                 steps{
                     copyArtifacts projectName: env.JOB_NAME, filter: "build/*", selector: specific(env.BUILD_NUMBER);
-                    sh 'ls'
+                    sh 'docker build -t cryptoapp:evn.BUILD_NUMBER .'
                 }
                 
             }
+            stage('Deploy to Production'){
+                steps{
+                    timeout(time:5, unit:'DAYS'){
+                    input message:'Approve PRODUCTION Deployment?'
+                }
+                sh 'docker container run -d -p 443:80 cryptoapp:evn.BUILD_NUMBER'
+            }
+        }
         }
     }
