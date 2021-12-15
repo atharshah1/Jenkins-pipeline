@@ -10,7 +10,7 @@
                 post {
                     success {
                         echo "Now Archiving the Artifacts...."
-                        archiveArtifacts artifacts: '**/build'
+                        archiveArtifacts artifacts: '**/build/*'
                     }
                 }
             }
