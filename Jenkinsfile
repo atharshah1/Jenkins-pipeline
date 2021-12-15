@@ -4,15 +4,13 @@
             stage('Build Application') {
                 steps {
                     sh 'yarn'
-                    sh 'npm install caniuse-lite'
-                    sh 'npx browserslist@latest --update-db'
-                    
+                    sh 'npm i'
                     sh 'yarn build'
                 }
                 post {
                     success {
                         echo "Now Archiving the Artifacts...."
-                        archiveArtifacts artifacts: '**/build/*'
+                        archiveArtifacts artifacts: '**/build'
                     }
                 }
             }
