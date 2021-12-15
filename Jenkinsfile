@@ -26,7 +26,7 @@
                     timeout(time:5, unit:'DAYS'){
                     input message:'Approve PRODUCTION Deployment?'
                 }
-                    sh 'docker container run -d -p 443:80 cryptoapp:${BUILD_NUMBER}'
+                    sh 'docker container run -d -p 80:80 cryptoapp:${BUILD_NUMBER}'
             }
         }
         }
