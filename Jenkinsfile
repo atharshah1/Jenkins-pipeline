@@ -4,8 +4,9 @@
             stage('Build Application') {
                 steps {
                     sh 'yarn'
-                    sh 'npx browserslist@latest --update-db'
                     sh 'npm install caniuse-lite'
+                    sh 'npx browserslist@latest --update-db'
+                    
                     sh 'yarn build'
                 }
                 post {
