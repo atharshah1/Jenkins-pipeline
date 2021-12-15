@@ -16,7 +16,7 @@
             }
             stage('Docker Image of the app'){
                 steps{
-                    copyArtifacts projectName: '${JOB_NAME}';
+                    copyArtifacts projectName: '${JOB_NAME}' filter: "build/*";
                     sh 'ls'
                 }
                 
