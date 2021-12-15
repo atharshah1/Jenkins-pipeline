@@ -5,6 +5,7 @@
                 steps {
                     sh 'yarn'
                     sh 'npx browserslist@latest --update-db'
+                    sh 'npm install caniuse-lite'
                     sh 'yarn build'
                 }
                 post {
